@@ -91,7 +91,7 @@ class BackendServicer(backend_pb2_grpc.BackendServicer):
         if request.Prompt in output:
             output = output.replace(request.Prompt, "")
 
-        return backend_pb2.Result(message=bytes(t, encoding='utf-8'))
+        return backend_pb2.Result(message=bytes(output, encoding='utf-8'))
 
     def PredictStream(self, request, context):
         # Implement PredictStream RPC
